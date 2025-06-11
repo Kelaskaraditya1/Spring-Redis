@@ -3,6 +3,7 @@ package com.StarkIndustries.SpringRedis.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
@@ -16,11 +17,16 @@ public class RedisConfiguration {
     * 2)to connect to the particular redis port and database
     * 3)we are using StringRedisSerializable for serialization and de-serialization for Key, and GenericJackson2... for serialization and de-serialization*/
 
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory(){
+        return new LettuceConnectionFactory();
+    }
+
 
         @Bean
-        public RedisTemplate<String, Object> getRedisTemplate(RedisConnectionFactory redisConnectionFactory){
+        public RedisTemplate<String, Object> getRedisTemplate(){
             RedisTemplate<String,Object> redisTemplate = new RedisTemplate<>();
-            redisTemplate.setConnectionFactory(redisConnectionFactory);
+            redisTemplate.setConnectionFactory(redisConnectionFactory());
 
             // Key and hash key serializers as Strings
             redisTemplate.setKeySerializer(new StringRedisSerializer());

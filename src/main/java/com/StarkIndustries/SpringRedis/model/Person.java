@@ -2,6 +2,8 @@ package com.StarkIndustries.SpringRedis.model;
 
 public class Person {
 
+    private String personId;
+
     private String name;
 
     private String age;
@@ -13,6 +15,15 @@ public class Person {
     private String password;
 
     public Person(String name, String age, String username, String email, String password) {
+        this.name = name;
+        this.age = age;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Person(String personId, String name, String age, String username, String email, String password) {
+        this.personId = personId;
         this.name = name;
         this.age = age;
         this.username = username;
@@ -64,10 +75,19 @@ public class Person {
         this.password = password;
     }
 
+    public String getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(String personId) {
+        this.personId = personId;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
+                "personId='" + personId + '\'' +
+                ", name='" + name + '\'' +
                 ", age='" + age + '\'' +
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
