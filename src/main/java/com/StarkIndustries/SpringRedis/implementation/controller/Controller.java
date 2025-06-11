@@ -1,15 +1,13 @@
-package com.StarkIndustries.SpringRedis.controller;
+package com.StarkIndustries.SpringRedis.implementation.controller;
 
-import com.StarkIndustries.SpringRedis.model.Person;
-import com.StarkIndustries.SpringRedis.model.SimpleKeyValueModel;
-import com.StarkIndustries.SpringRedis.service.RedisService;
-import com.StarkIndustries.SpringRedis.service.RedisServiceWithHash;
+import com.StarkIndustries.SpringRedis.implementation.model.Person;
+import com.StarkIndustries.SpringRedis.implementation.service.RedisService;
+import com.StarkIndustries.SpringRedis.implementation.service.RedisServiceWithHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 

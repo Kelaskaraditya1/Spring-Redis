@@ -1,4 +1,4 @@
-package com.StarkIndustries.SpringRedis.model;
+package com.StarkIndustries.SpringRedis.implementation.model;
 
 public class SimpleKeyValueModel {
 

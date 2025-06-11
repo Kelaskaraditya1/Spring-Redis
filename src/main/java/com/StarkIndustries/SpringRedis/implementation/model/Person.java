@@ -1,6 +1,8 @@
-package com.StarkIndustries.SpringRedis.model;
+package com.StarkIndustries.SpringRedis.implementation.model;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable {
 
     private String personId;
 

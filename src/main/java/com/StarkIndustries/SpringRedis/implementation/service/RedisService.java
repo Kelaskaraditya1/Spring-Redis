@@ -1,17 +1,12 @@
-package com.StarkIndustries.SpringRedis.service;
+package com.StarkIndustries.SpringRedis.implementation.service;
 
-import com.StarkIndustries.SpringRedis.model.SimpleKeyValueModel;
-import com.fasterxml.jackson.core.JsonParser;
+import com.StarkIndustries.SpringRedis.implementation.model.SimpleKeyValueModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-import java.security.Key;
 
 @Service
 public class RedisService {

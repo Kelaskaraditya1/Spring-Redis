@@ -1,16 +1,22 @@
-package com.StarkIndustries.SpringRedis.service;
+package com.StarkIndustries.SpringRedis.implementation.service;
 
-import com.StarkIndustries.SpringRedis.model.Person;
+import com.StarkIndustries.SpringRedis.implementation.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.security.Key;
 import java.util.Map;
 import java.util.UUID;
 
 @Service
 public class RedisServiceWithHash {
+
+    /* In Ops for hash there is a general/global hash/Key under which all the objects are stored
+    *   Like Hash ---> (Key1,Value)
+    *        Hash ---> (Key2,Value)
+    *   above " PERSONS_COLLECTION " is the Hash/Key under which all the Key/Value pairs are Stored.
+    * */
 
     @Autowired
     public RedisTemplate<String,Object> redisTemplate;
@@ -23,6 +29,7 @@ public class RedisServiceWithHash {
         return person;
     }
 
+    @Cacheable(value = "person",key = "#personId")
     public Person getValue(String personId){
         return (Person) this.redisTemplate.opsForHash().get(REDIS_KEY,personId);
     }
